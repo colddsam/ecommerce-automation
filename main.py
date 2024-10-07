@@ -51,6 +51,7 @@ with open('products.csv', mode='w', newline='', encoding='utf-8') as file:
 
     for product in products:
         name = product.find('div', attrs={'class': endpoints['name']})
+        print(name.get_text(strip=True))
         quantity = product.find('span', attrs={'class': endpoints['quantity']})
         discount = product.find('div', attrs={'class': endpoints['discount']})
         discount_value = product.find('div', style=endpoints['discounted_value'])
