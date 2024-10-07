@@ -25,7 +25,13 @@ jobs:
         sudo apt-get update
         sudo apt-get install -y chromium-browser
         sudo apt-get install -y chromium-chromedriver
-        sudo ln -s /usr/lib/chromium-browser/chromium-browser /usr/bin/google-chrome  # Symlink to correct binary path
+        # Check if the symbolic link already exists
+        if [ -L /usr/bin/google-chrome ]; then
+          sudo rm /usr/bin/google-chrome  # Remove the existing symlink
+        fi
+        # Create a new symbolic link to the correct binary path
+        sudo ln -s /usr/bin/chromium-browser /usr/bin/google-chrome
+
 
     - name: Install Python dependencies
       run: |
