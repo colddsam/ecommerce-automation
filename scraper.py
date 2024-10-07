@@ -59,7 +59,7 @@ soup = BeautifulSoup(page_source, 'html.parser')
 
 products = soup.find_all('a', attrs={'data-test-id': 'plp-product'})
 
-print(products)
+print(soup)
 
 with open('products.csv', mode='w', newline='', encoding='utf-8') as file:
     writer = csv.writer(file)
