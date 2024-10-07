@@ -3,6 +3,7 @@ from selenium import webdriver
 from bs4 import BeautifulSoup
 import time
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
 
 endpoints = {
     'name': 'Product__UpdatedTitle-sc-11dk8zk-9 hxWnoO',
@@ -21,8 +22,12 @@ chrome_options.add_argument("--window-size=1920,1080")
 chrome_options.add_argument("--disable-gpu") 
 chrome_options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3")
 
+chrome_path = "/usr/bin/chromium-browser"
+chrome_options.binary_location = chrome_path
 
-driver = webdriver.Chrome(options=chrome_options)
+
+driver = webdriver.Chrome(service=Service(), options=chrome_options)
+# driver = webdriver.Chrome(options=chrome_options)
 
 
 # driver = webdriver.Chrome()
