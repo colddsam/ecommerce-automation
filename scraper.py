@@ -3,11 +3,6 @@ from selenium import webdriver
 from bs4 import BeautifulSoup
 import time
 from selenium.webdriver.chrome.options import Options
-# chrome_options = Options()
-# chrome_options.add_argument("--headless")  # Run Chrome in headless mode
-# chrome_options.add_argument("--no-sandbox")
-# chrome_options.add_argument("--disable-dev-shm-usage")
-# driver = webdriver.Chrome(options=chrome_options)
 
 endpoints = {
     'name': 'Product__UpdatedTitle-sc-11dk8zk-9 hxWnoO',
@@ -18,7 +13,14 @@ endpoints = {
     'out': 'AddToCart__UpdatedOutOfStockTag-sc-17ig0e3-4 bxVUKb'
 }
 
-driver = webdriver.Chrome()
+chrome_options = Options()
+chrome_options.add_argument("--headless")  # Run Chrome in headless mode
+chrome_options.add_argument("--no-sandbox")
+chrome_options.add_argument("--disable-dev-shm-usage")
+driver = webdriver.Chrome(options=chrome_options)
+
+
+# driver = webdriver.Chrome()
 
 driver.get("https://blinkit.com/s/?q=electronics")
 
