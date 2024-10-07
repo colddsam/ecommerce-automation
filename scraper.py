@@ -49,10 +49,17 @@ while True:
         break
     last_height = new_height
 
+
+print("e")
+
 page_source = driver.page_source
 soup = BeautifulSoup(page_source, 'html.parser')
 
+
+
 products = soup.find_all('a', attrs={'data-test-id': 'plp-product'})
+
+print(products)
 
 with open('products.csv', mode='w', newline='', encoding='utf-8') as file:
     writer = csv.writer(file)
