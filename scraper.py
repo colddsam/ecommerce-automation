@@ -4,6 +4,7 @@ from bs4 import BeautifulSoup
 import time
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
+print("a")
 
 endpoints = {
     'name': 'Product__UpdatedTitle-sc-11dk8zk-9 hxWnoO',
@@ -14,6 +15,7 @@ endpoints = {
     'out': 'AddToCart__UpdatedOutOfStockTag-sc-17ig0e3-4 bxVUKb'
 }
 
+print("b")
 chrome_options = Options()
 chrome_options.add_argument("--headless")  
 chrome_options.add_argument("--no-sandbox") 
