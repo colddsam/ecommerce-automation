@@ -33,8 +33,10 @@ driver = webdriver.Chrome(service=Service(), options=chrome_options)
 
 
 # driver = webdriver.Chrome()
+print("c")
 
 driver.get("https://blinkit.com/s/?q=electronics")
+print("d")
 
 scroll_pause_time = 3
 last_height = driver.execute_script("return document.body.scrollHeight")
