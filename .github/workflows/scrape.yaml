@@ -1,49 +1,28 @@
-name: Blinkit Product Scraper
+name: Run Product Scraper and Notifier
 
 on:
-  push:
-    branches:
-      - main
   schedule:
-    - cron: '0 12 * * *'  # Runs every day at 12:00 UTC
+    - cron: '*/30 * * * *'  
+  workflow_dispatch:  
 
 jobs:
-  scrape:
+  run-scraper:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout the repository
+    - name: Checkout code
       uses: actions/checkout@v3
 
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
-        python-version: '3.x'
+        python-version: '3.10'  
 
-    - name: Install Chrome and ChromeDriver
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y chromium-browser
-        sudo apt-get install -y chromium-chromedriver
-        # Check if the symbolic link already exists
-        if [ -L /usr/bin/google-chrome ]; then
-          sudo rm /usr/bin/google-chrome  # Remove the existing symlink
-        fi
-        # Create a new symbolic link to the correct binary path
-        sudo ln -s /usr/bin/chromium-browser /usr/bin/google-chrome
-
-
-    - name: Install Python dependencies
+    - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install -r requirements.txt
+        pip install -r requirements.txt 
 
-    - name: Run scraper
+    - name: Run the script
       run: |
-        python scraper.py
-
-    - name: Upload CSV file as artifact
-      uses: actions/upload-artifact@v3
-      with:
-        name: scraped-products
-        path: products.csv
+        python main.py  

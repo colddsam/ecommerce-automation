@@ -7,3 +7,7 @@ seleniumtest.ipynb
 test.ipynb
 test.py
 venv
+.env
+test/
+testfiles/
+scraper.py
