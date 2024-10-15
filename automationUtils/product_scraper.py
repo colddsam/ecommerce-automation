@@ -1,11 +1,12 @@
 import requests
+# from geopy.geocoders import Nominatim
 
 class ProductScraper:
     def __init__(self, location="Kolkata", size="1000"):
         self.queries = ["toy"]
         self.size = size
-        self.geolocator = Nominatim(user_agent="MyApp")
-        self.location = self.geolocator.geocode(location)
+        # self.geolocator = Nominatim(user_agent="MyApp")
+        # self.location = self.geolocator.geocode(location)
         self.headers = {
             "User-Agent": "Mozilla/5.0",
             "Accept": "*/*",
@@ -14,6 +15,8 @@ class ProductScraper:
             "content-type": "application/json",
             "lat": "22.5744",
             "lon": "88.3629"
+            # "lat": f"{self.location.latitude}",
+            # "lon": f"{self.location.longitude}"
         }
 
     def scrape_products(self):
