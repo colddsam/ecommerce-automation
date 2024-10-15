@@ -1,4 +1,3 @@
 requests
-geopy
 pandas
 python-telegram-bot

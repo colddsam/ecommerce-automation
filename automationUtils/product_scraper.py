@@ -13,8 +13,8 @@ class ProductScraper:
             "Accept-Encoding": "gzip, deflate, br",
             "accept-language": "en-GB,en-US;q=0.9,en;q=0.8,es;q=0.7",
             "content-type": "application/json",
-            "lat": f"{self.location.latitude}",
-            "lon": f"{self.location.longitude}"
+            "lat": "22.5744",
+            "lon": "88.3629"
         }
 
     def scrape_products(self):
