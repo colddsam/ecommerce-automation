@@ -1,5 +1,4 @@
 import requests
-from geopy.geocoders import Nominatim
 
 class ProductScraper:
     def __init__(self, location="Kolkata", size="1000"):
