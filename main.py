@@ -1,9 +1,13 @@
+import os
+from dotenv import load_dotenv
 from automationUtils.product_scraper import ProductScraper
 from automationUtils.telegram_notifier import TelegramNotifier
 from automationUtils.data_processor import DataProcessor
 
-TELEGRAM_TOKEN = '7594858888:AAHagQDbVPtsZPAa0N_Vw-YCXRx0xE8oFm0'
-CHAT_ID = '-4529036401'
+load_dotenv()
+
+TELEGRAM_TOKEN = os.getenv('TELEGRAM_TOKEN')
+CHAT_ID = os.getenv('CHAT_ID')
 
 def main():
     
